@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/>
-    <title></title>
+<head th:replace="fragments :: head">
 </head>
 <body>
 
-<p>Hello World!</p>
+
+
+<p>Hello World! Welcome to Tabby Planner where you have your to-do task all in one
+    place!<br> Please login or register to begin:</br></p>
+
+<header th:replace="fragments :: header"></header>
+
+
 
 </body>
 </html>
