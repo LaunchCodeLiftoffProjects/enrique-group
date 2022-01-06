@@ -2,23 +2,20 @@ package com.tappyplanner.models;
 
 
 import com.google.gson.Gson;
-import com.google.gson.internal.$Gson$Preconditions;
-import org.springframework.boot.json.GsonJsonParser;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class WeatherInfoService {
 
 
 
-    public Weather GetWeatherInfo() throws IOException {
+    public WeatherModel GetWeatherInfo() throws IOException {
 
-    URL url = new URL("http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={01c043160eb542c29c4629d3679ac8ec}");
+    URL url = new URL("http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=01c043160eb542c29c4629d3679ac8ec");
     HttpURLConnection connection = (HttpURLConnection)url.openConnection();
     connection.setRequestMethod("GET");
     connection.setRequestProperty("Accept","application/json");
@@ -39,10 +36,10 @@ public class WeatherInfoService {
     System.out.println(weatherInfoJSon);
 
     Gson gson = new Gson();
-    Weather weather = gson.fromJson(weatherInfoJSon, Weather.class);
+    WeatherModel weather = gson.fromJson(weatherInfoJSon, WeatherModel.class);
 
     return weather;
 
 }
-//new note
+
 }

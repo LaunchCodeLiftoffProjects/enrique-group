@@ -1,7 +1,8 @@
 package com.tappyplanner.controllers;
 
-import com.tappyplanner.models.Weather;
+import com.tappyplanner.models.WeatherModel;
 import com.tappyplanner.models.WeatherInfoService;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.io.IOException;
@@ -9,14 +10,14 @@ import java.io.IOException;
 public class WeatherController {
 
     @GetMapping("/")
-    public String Index(Weather weather) throws IOException {
+    public String Index(Model model) throws IOException {
 
         WeatherInfoService weatherInfoService = new WeatherInfoService();
-        Weather weather = weatherInfoService.GetWeatherInfo();
+        WeatherModel weather = weatherInfoService.GetWeatherInfo();
 
-        weather.addAttribute("weather", weather);
+        model.addAttribute("weather", weather);
 
-        return "";
+        return "index";
     }
 
 }
