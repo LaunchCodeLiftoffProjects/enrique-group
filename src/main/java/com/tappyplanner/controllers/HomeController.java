@@ -20,23 +20,23 @@ public class HomeController {
     @GetMapping()
     String displayhome(Model model){
        model.addAttribute("items", items );
-       return "index";
+       return "user/home";
     }
 
-    @GetMapping("/index")
+    @GetMapping("/home")
     String renderhome(Model model){
         model.addAttribute("items", items );
-        return "index";
+        return "user/home";
     }
 
     @GetMapping("/create")
     String displayform(Model model){
-        return "create";
+        return "user/create";
     }
 
     @PostMapping("create")
     public String createTask(@RequestParam String itemName){
         items.add(itemName);
-        return "redirect:";
+        return "user/home";
     }
 }
