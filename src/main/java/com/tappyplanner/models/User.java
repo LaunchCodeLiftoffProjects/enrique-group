@@ -16,6 +16,9 @@ public class User extends AbstractEntity {
     @JoinColumn(name="user_id")
     private List<Task> userTasks = new ArrayList<>();
 
+    private String location;
+
+
     @NotNull
     private String username;
 
@@ -41,4 +44,17 @@ public class User extends AbstractEntity {
     public boolean isMatchingPassword(String password) {
         return encoder.matches(password, pwHash);
     }
+
+    public List<Task> getUserTasks() {
+        return userTasks;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
 }
