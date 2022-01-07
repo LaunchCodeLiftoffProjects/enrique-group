@@ -16,7 +16,7 @@ public class HomeController {
     @RequestMapping("index")
     public String index(Model model) {
         model.addAttribute("title", "My Tabby List");
-        model.addAttribute("jobs");
+        model.addAttribute("register");
 
         return "index";
     }
