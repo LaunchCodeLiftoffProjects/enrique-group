@@ -1,6 +1,8 @@
 package com.tappyplanner.models;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
@@ -26,6 +28,12 @@ public class Task extends AbstractEntity{
 
     @NotNull(message = "Please choose if you'd like to be reminded of this task.")
     private Boolean reminder;
+
+    @ManyToOne
+    @JoinColumn(name = "User_id")
+    @NotNull(message = "Field required.")
+    private User user;
+
 
     public Task() {
 
@@ -60,5 +68,13 @@ public class Task extends AbstractEntity{
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
