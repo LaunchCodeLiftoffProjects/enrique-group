@@ -1,5 +1,6 @@
 package com.tappyplanner.controllers;
 
+import com.tappyplanner.models.Task;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +14,7 @@ import java.util.List;
 @Controller
 public class HomeController {
 
-    private static List<String> items = new ArrayList<>();
+    private static List<Task> items = new ArrayList<>();
 
 
 
@@ -36,7 +37,7 @@ public class HomeController {
 
     @PostMapping("create")
     public String createTask(@RequestParam String itemName){
-        items.add(itemName);
+        items.add(new Task(itemName));
         return "user/home";
     }
 }

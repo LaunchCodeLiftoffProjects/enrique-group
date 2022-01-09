@@ -16,8 +16,30 @@ import java.util.Date;
 @Entity
 public class Task extends AbstractEntity{
 
+    public Task(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    @Override
+    public String toString() {
+        return "Task{" +
+                "name='" + name + '\'' +
+                '}';
+    }
+    
+    private String name;
+
     @Size(min = 3, max = 250 , message = "Description must be between 3 and 250 characters.")
     private String description;
+
+
 
     @NotNull(message = "Date is required.")
     private Date date;
