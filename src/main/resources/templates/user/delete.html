@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class ="container">
+<h1>Delete Task</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post">
+        <th:block th:each="tasks : ${tasks}">
+            <div class="form-group">
+            <label>
+                <span th:text="${tasks.name}"></span>
+                <input type="checkbox" name="taskIds" th:value="${tasks.id}" class="form-control">
+            </label>
+            </div>
+        </th:block>
+    <input type="submit" value="delete" class="btn btn-danger">
+</form>
+
+</body>
+</html>

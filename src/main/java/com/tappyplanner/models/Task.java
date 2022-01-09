@@ -16,8 +16,19 @@ import java.util.Date;
 @Entity
 public class Task extends AbstractEntity{
 
-    public Task(String name) {
+    private int id;
+    private static int nextID = 1;
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    public Task(String name, String description) {
+        this.description = description;
         this.name = name;
+        this.id = nextID;
+        nextID++;
     }
 
     public String getName() {
@@ -33,7 +44,8 @@ public class Task extends AbstractEntity{
                 "name='" + name + '\'' +
                 '}';
     }
-    
+
+    @Size(min = 3, max = 50)
     private String name;
 
     @Size(min = 3, max = 250 , message = "Description must be between 3 and 250 characters.")
