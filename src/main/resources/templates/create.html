@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body class ="container">
+<header th:replace="fragments :: header"></header>
 <h1>Create Task</h1>
 <nav th:replace="fragments :: navigation"></nav>
 <form method ="post">
@@ -15,6 +16,6 @@
     </div>
 
 </form>
-
+<footer th:replace="fragments :: footer"></footer>
 </body>
 </html>
