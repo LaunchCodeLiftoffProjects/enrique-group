@@ -16,5 +16,10 @@
         <td th:text="${items}"></td>
     </tr>
 </table>
+
+<ul  th:each="data : ${weather}">
+    <li th:text="${data}"></li>
+
+</ul>
 </body>
 </html> 
