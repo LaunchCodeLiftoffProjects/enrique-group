@@ -1,31 +1,29 @@
 package com.tappyplanner.controllers;
 
 import com.tappyplanner.models.Task;
-import com.tappyplanner.models.data.TaskData;
+import com.tappyplanner.models.data.TaskRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
-
 @Controller
 public class HomeController {
 
+    @Autowired
+    private TaskRepository taskRepository;
 
-
-
+// findAll, save, findByID
 
     @GetMapping()
     String displayhome(Model model){
-       model.addAttribute("items", TaskData.getAll());
+       model.addAttribute("items", taskRepository.findAll());
        return "user/home";
     }
 
     @GetMapping("/home")
     String renderhome(Model model){
-        model.addAttribute("items", TaskData.getAll());
+        model.addAttribute("items", taskRepository.findAll());
         return "user/home";
     }
 
@@ -36,14 +34,14 @@ public class HomeController {
 
     @PostMapping("/create")
     public String createTask(@ModelAttribute Task newTask){
-        TaskData.add(newTask);
+        taskRepository.save(newTask);
         return "user/home";
     }
 
     @GetMapping("/delete")
     public String displayDeleteForm(Model model) {
         model.addAttribute("title", "Delete Events");
-        model.addAttribute("tasks", TaskData.getAll());
+        model.addAttribute("tasks", taskRepository.findAll());
         return "user/delete";
     }
 
@@ -51,7 +49,7 @@ public class HomeController {
     public String deleteProcess(@RequestParam(required = false) int[] taskIds) {
         if(taskIds != null) {
             for (int id : taskIds) {
-                TaskData.remove(id);
+                taskRepository.deleteById(id);
             }
         }
         return"user/home";
