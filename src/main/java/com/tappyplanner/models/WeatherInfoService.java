@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.MalformedURLException;
+
 
 public class WeatherInfoService {
 
@@ -19,6 +21,10 @@ public class WeatherInfoService {
     HttpURLConnection connection = (HttpURLConnection)url.openConnection();
     connection.setRequestMethod("GET");
     connection.setRequestProperty("Accept","application/json");
+
+    int status = connection.getResponseCode();
+    System.out.println(status);
+
 
     BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
     String inputLine;
@@ -37,6 +43,8 @@ public class WeatherInfoService {
 
     Gson gson = new Gson();
     WeatherModel weather = gson.fromJson(weatherInfoJSon, WeatherModel.class);
+
+    System.out.println(weather);
 
     return weather;
 

@@ -1,10 +1,19 @@
 package com.tappyplanner.models;
 
+import com.google.gson.Gson;
+
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+
 public class WeatherModel {
 
-    public String country;
+    public String list;
 
 
+    //        String list[1].main;
+
+//        String list.main.temp_min;
 
 }
 

@@ -1,5 +1,6 @@
 package com.tappyplanner;
 
+import com.tappyplanner.models.WeatherInfoService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
