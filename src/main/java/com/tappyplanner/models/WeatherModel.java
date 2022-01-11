@@ -8,9 +8,9 @@ import java.util.Map;
 
 public class WeatherModel {
 
-    public String list;
+//    public String list;
 
-
+// could also use weatherInfoService to pull the list array into its own variable and then iterate?
     //        String list[1].main;
 
 //        String list.main.temp_min;
@@ -21,3 +21,4 @@ public class WeatherModel {
 
 
 //http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={API key}
+//add

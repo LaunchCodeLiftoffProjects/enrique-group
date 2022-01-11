@@ -17,7 +17,7 @@ public class WeatherInfoService {
 
     public WeatherModel GetWeatherInfo() throws IOException {
 
-    URL url = new URL("http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=01c043160eb542c29c4629d3679ac8ec");
+    URL url = new URL("http://api.openweathermap.org/data/2.5/forecast?zip=63033&appid=01c043160eb542c29c4629d3679ac8ec&units=imperial");
     HttpURLConnection connection = (HttpURLConnection)url.openConnection();
     connection.setRequestMethod("GET");
     connection.setRequestProperty("Accept","application/json");
