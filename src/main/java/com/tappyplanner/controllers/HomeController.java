@@ -13,8 +13,6 @@ public class HomeController {
     @Autowired
     private TaskRepository taskRepository;
 
-// findAll, save, findByID
-
     @GetMapping()
     String displayhome(Model model){
        model.addAttribute("items", taskRepository.findAll());
