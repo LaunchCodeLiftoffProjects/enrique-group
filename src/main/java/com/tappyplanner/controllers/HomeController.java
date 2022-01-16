@@ -1,12 +1,15 @@
 package com.tappyplanner.controllers;
 
+import com.tappyplanner.models.WeatherJsonParser;
 import com.tappyplanner.models.WeatherMapAPI;
+import com.tappyplanner.models.WeatherPOJO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,9 +23,10 @@ public class HomeController {
 
 
     @GetMapping()
-    String displayhome(Model model){
+    String displayhome(Model model) throws IOException {
        model.addAttribute("items", items );
-       model.addAttribute("weather", currentWeather.getWeatherData());
+       model.addAttribute("weather",
+               WeatherJsonParser.fromJson(WeatherJsonParser.parse(currentWeather.getWeatherData()), WeatherPOJO.class));
        return "user/home";
     }
 

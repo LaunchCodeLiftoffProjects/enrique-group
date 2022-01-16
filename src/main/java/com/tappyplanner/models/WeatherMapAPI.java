@@ -1,7 +1,5 @@
 package com.tappyplanner.models;
 
-import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,7 +13,7 @@ import java.net.URL;
 public class WeatherMapAPI {
 //    Method #1
 
-    private final Object weatherData;
+    private final String weatherData;
 
     BufferedReader reader;
      String line;
@@ -57,18 +55,11 @@ public class WeatherMapAPI {
     }
 
     public WeatherMapAPI() {
-        this.weatherData = parse(responseContent.toString());
+        this.weatherData = responseContent.toString();
     }
 
-//
-    private Object parse(String responseBody) {
-        JSONObject obj = new JSONObject(responseBody);
-        Object weather = (Object)obj;
 
-        return weather;
-    }
-
-    public Object getWeatherData() {
+    public String getWeatherData() {
         return weatherData;
     }
 
