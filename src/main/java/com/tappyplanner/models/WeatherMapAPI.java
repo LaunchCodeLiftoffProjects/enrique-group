@@ -22,10 +22,11 @@ public class WeatherMapAPI {
      StringBuffer responseContent = new StringBuffer();
      URL url;
 
+
     {
         HttpURLConnection connection = null;
         try {
-            url = new URL("https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid=149b8c49112d0d76f6b8a1c2cd34910b");
+            url = new URL("http://api.openweathermap.org/data/2.5/forecast?zip=63033&appid=01c043160eb542c29c4629d3679ac8ec&units=imperial");
             connection = (HttpURLConnection) url.openConnection();
 
             // Request setup
@@ -59,10 +60,10 @@ public class WeatherMapAPI {
         this.weatherData = parse(responseContent.toString());
     }
 
-
+//
     private Object parse(String responseBody) {
         JSONObject obj = new JSONObject(responseBody);
-        Object weather = obj.getJSONObject("current");
+        Object weather = (Object)obj;
 
         return weather;
     }
