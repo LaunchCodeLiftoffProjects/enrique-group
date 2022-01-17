@@ -1,6 +1,8 @@
 package com.tappyplanner.models;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONObject;
+import org.springframework.http.ResponseEntity;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -56,20 +58,32 @@ public class WeatherMapAPI {
         }
     }
 
+
     public WeatherMapAPI() {
         this.weatherData = parse(responseContent.toString());
     }
 
-//
+
     private Object parse(String responseBody) {
         JSONObject obj = new JSONObject(responseBody);
         Object weather = (Object)obj;
+
 
         return weather;
     }
 
     public Object getWeatherData() {
+
+
+        ResponseEntity<String> resp= responseContent;
+
+        ObjectMapper mapper = new ObjectMapper();
+        Weather weatherData = mapper.readValue(responseContent.getBody(), Weather.class);
+        model.addAttribute("weatherData", weatherData);
+
+
         return weatherData;
     }
 
 }
+

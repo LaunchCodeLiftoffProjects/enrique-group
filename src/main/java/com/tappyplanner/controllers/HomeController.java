@@ -1,5 +1,6 @@
 package com.tappyplanner.controllers;
 
+import com.tappyplanner.models.Weather;
 import com.tappyplanner.models.WeatherMapAPI;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +16,8 @@ public class HomeController {
 
     private final WeatherMapAPI currentWeather = new WeatherMapAPI();
 
+    private final Weather weatherData = new Weather();
+
     private static List<String> items = new ArrayList<>();
 
 
@@ -23,6 +26,7 @@ public class HomeController {
     String displayhome(Model model){
        model.addAttribute("items", items );
        model.addAttribute("weather", currentWeather.getWeatherData());
+       model.addAttribute("");
        return "user/home";
     }
 
