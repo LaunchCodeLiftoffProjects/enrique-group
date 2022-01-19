@@ -35,7 +35,7 @@ public class HomeController {
     @PostMapping("/create")
     public String createTask(@ModelAttribute Task newTask){
         taskRepository.save(newTask);
-        return "user/home";
+        return "redirect:";
     }
 
     @GetMapping("/delete")
@@ -52,6 +52,6 @@ public class HomeController {
                 taskRepository.deleteById(id);
             }
         }
-        return"user/home";
+        return"redirect:";
     }
 }
