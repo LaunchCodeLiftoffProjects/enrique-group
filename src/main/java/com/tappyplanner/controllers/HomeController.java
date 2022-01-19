@@ -15,11 +15,12 @@ public class HomeController {
 
 
 
-    @GetMapping()
+   @PostMapping()
     String displayhome(Model model){
        model.addAttribute("items", taskRepository.findAll());
        return "user/home";
     }
+
 
     @GetMapping("/home")
     String renderhome(Model model){
@@ -35,7 +36,7 @@ public class HomeController {
     @PostMapping("/create")
     public String createTask(@ModelAttribute Task newTask){
         taskRepository.save(newTask);
-        return "redirect:";
+        return "user/home";
     }
 
     @GetMapping("/delete")
@@ -52,6 +53,6 @@ public class HomeController {
                 taskRepository.deleteById(id);
             }
         }
-        return"redirect:";
+        return"user/home";
     }
 }
