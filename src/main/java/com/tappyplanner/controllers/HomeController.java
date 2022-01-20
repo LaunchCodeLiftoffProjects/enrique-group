@@ -25,7 +25,7 @@ public class HomeController {
     @GetMapping()
     String displayhome(Model model){
        model.addAttribute("items", items );
-       model.addAttribute("weather", currentWeather.getWeatherData());
+//       model.addAttribute("weather", currentWeather.getWeatherData());
        model.addAttribute("");
        return "user/home";
     }
