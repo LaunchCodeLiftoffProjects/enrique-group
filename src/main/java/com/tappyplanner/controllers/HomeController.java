@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 public class HomeController {
 
@@ -14,8 +16,7 @@ public class HomeController {
     private TaskRepository taskRepository;
 
 
-
-   @PostMapping()
+    @PostMapping("/home")
     String displayhome(Model model){
        model.addAttribute("items", taskRepository.findAll());
        return "user/home";
@@ -36,7 +37,7 @@ public class HomeController {
     @PostMapping("/create")
     public String createTask(@ModelAttribute Task newTask){
         taskRepository.save(newTask);
-        return "user/home";
+        return "redirect:/home";
     }
 
     @GetMapping("/delete")
@@ -53,6 +54,6 @@ public class HomeController {
                 taskRepository.deleteById(id);
             }
         }
-        return"user/home";
+        return "redirect:/home";
     }
 }
