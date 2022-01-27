@@ -15,7 +15,30 @@
     <tr th:each="items : ${items}">
         <td th:text="${items}"></td>
     </tr>
-</table>
+
+<!--    <form action="weather" method="post">-->
+<!--        <div>-->
+<!--            <label>Enter the city name to check the weather</label>-->
+<!--            <input type="text" name="city">-->
+<!--        </div>-->
+<!--        <button type="submit">Submit</button>-->
+<!--    </form>-->
+
+<!--    <div class="div1">-->
+<!--        <table id="table" style="width:100%">-->
+<!--            <tr>-->
+<!--                <th>City</th>-->
+<!--                <th>Latitude</th>-->
+<!--                <th>Longitude</th>-->
+<!--                <th>Weather</th>-->
+<!--            </tr>-->
+<!--            <tr th:each="weather,iterStat : ${weatherData}" }>-->
+<!--                <td><span th:text="${weather.getName()}"></span></td>-->
+<!--                <td><span th:text="${weather.getLat()}"></span></td>-->
+<!--                <td><span th:text="${weather.getLon()}"></span></td>-->
+<!--                <td><span th:text="${weather.getWeatherDescription()}"></span></td>-->
+
+<!--        </table>-->
 <footer th:replace="fragments :: footer"></footer>
 </body>
 </html> 
