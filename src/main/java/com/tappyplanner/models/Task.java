@@ -16,52 +16,35 @@ import java.util.Date;
 @Entity
 public class Task extends AbstractEntity{
 
+
+    public Task(String name, String description) {
+        this.description = description;
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    @Override
+    public String toString() {
+        return "Task{" +
+                "name='" + name + '\'' +
+                '}';
+    }
+
+    @Size(min = 3, max = 50)
+    private String name;
+
     @Size(min = 3, max = 250 , message = "Description must be between 3 and 250 characters.")
     private String description;
 
-    @NotNull(message = "Date is required.")
-    private Date date;
-
-    //TODO implement functionality that connects with user email or phone api
-    //     to send a reminder at a predetermined time
 
 
-    @NotNull(message = "Please choose if you'd like to be reminded of this task.")
-    private Boolean reminder;
-
-    @ManyToOne
-    @JoinColumn(name = "User_id")
-    @NotNull(message = "Field required.")
-    private User user;
-
-
-    public Task() {
-
-    }
-
-    public Task(String description, Date date, Boolean reminder) {
-        super();
-        this.description = description;
-        this.date = date;
-        this.reminder = reminder;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public Boolean getReminder() {
-        return reminder;
-    }
-
-    public void setReminder(Boolean reminder) {
-        this.reminder = reminder;
-    }
-
+    public Task() { }
     public String getDescription() {
         return description;
     }
