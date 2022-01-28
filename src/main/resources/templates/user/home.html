@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-
 <body class ="container">
+<header th:replace="fragments :: header"></header>
 <h1>Things to do... </h1>
 <nav th:replace="fragments :: navigation"></nav>
 <p th:unless ="${items} and ${items.size()}">Nothing to do.</p>
@@ -20,5 +20,6 @@
         <td th:text="${items.description}"></td>
     </tr>
 </table>
+<footer th:replace="fragments :: footer"></footer>
 </body>
 </html> 
