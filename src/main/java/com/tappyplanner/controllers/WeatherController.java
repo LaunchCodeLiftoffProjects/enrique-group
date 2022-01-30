@@ -50,7 +50,7 @@ public class WeatherController {
                 .scheme("http")
                 .host(weatherData.getUrl())
                 .path("")
-                .query("q={keyword}&appid={appid}")
+                .query("q={keyword}&appid={appid}&units=imperial")
                 .buildAndExpand(city.getCity(),weatherData.getApiKey());
 
         System.out.println(uriComponents);

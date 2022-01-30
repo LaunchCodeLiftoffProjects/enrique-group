@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
-<head th:replace="fragments :: head"></head>
-
 <header th:replace="fragments :: header"></header>
 <body>
 <h2>Weather Data</h2>
@@ -15,18 +12,17 @@
     <table id="table" style="width:100%">
         <tr>
             <th>City</th>
-            <th>Latitude</th>
-            <th>Longitude</th>
+            <th>Temperature</th>
             <th>Weather</th>
         </tr>
         <tr th:each="weather,iterStat : ${weatherData}" }>
             <td><span th:text="${weather.getName()}"></span></td>
-            <td><span th:text="${weather.getLat()}"></span></td>
-            <td><span th:text="${weather.getLon()}"></span></td>
+            <td><span th:text="${weather.getMainTemp()}"></span></td>
             <td><span th:text="${weather.getWeatherDescription()}"></span></td>
 
         </tr>
     </table>
 </div>
 </body>
+<footer th:replace="fragments :: footer"></footer>
 </html>
