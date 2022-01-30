@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <title>Weather Data</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
+<head th:replace="fragments :: head"></head>
+<body class ="container">
+<header th:replace="fragments :: header"></header>
 <body>
-<h2>Weather API</h2>
+<h1>Weather Data</h1>
 <div class="div">
 
 </div>
 
 <form action="weather" method="post">
     <div>
-        <label>Enter the city name to check the weather</label>
+        <label>Enter the city name that you are planning for today.</label>
         <input type="text" name="city">
     </div>
     <button type="submit">Submit</button>
 </form>
 </body>
+<footer th:replace="fragments :: footer"></footer>
 </html>
