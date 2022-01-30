@@ -18,6 +18,7 @@ public class Weather implements Serializable {
     private double lon;
     private String name;
     private double lat;
+    private double mainTemp;
 
     @Bean
     public Weather weather() {
@@ -31,6 +32,14 @@ public class Weather implements Serializable {
 
     public Weather(Weather weather) {
         // TODO Auto-generated constructor stub
+    }
+
+    public double getMainTemp() {
+        return mainTemp;
+    }
+
+    public void setMainTemp(double mainTemp) {
+        this.mainTemp = mainTemp;
     }
 
     public double getLat() {
@@ -64,6 +73,10 @@ public class Weather implements Serializable {
     public void setWeather(List<Map<String, Object>> weatherEntries) {
         Map<String, Object> weather = weatherEntries.get(0);
         setWeatherDescription((String) weather.get("description"));
+    }
+    @JsonProperty("main")
+    public void setMain (Map<String, Object> main) {
+        setMainTemp((double) main.get("temp"));
     }
 
     @JsonProperty("lon")
