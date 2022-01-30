@@ -9,14 +9,18 @@
 <table class="table table-striped">
     <thead>
     <tr>
+        <th>ID</th>
         <th>Name</th>
+        <th>Description</th>
     </tr>
     </thead>
     <tr th:each="items : ${items}">
-        <td th:text="${items}"></td>
+        <td th:text="${items.id}"></td>
+        <td th:text="${items.name}"></td>
+        <td th:text="${items.description}"></td>
     </tr>
 </table>
 
-<footer th:replace="fragments :: footer"></footer>
 </body>
+<footer th:replace="fragments :: footer"></footer>
 </html> 
